@@ -26,10 +26,10 @@ export default function Nav() {
                                  <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                                  <button className="btn btn-outline-success" type="submit">Search</button>
                             </form>
-                                <button className='btn btn-outline-info ms-3 position-relative'>
+                                <Link className='btn btn-outline-info ms-3 position-relative' to='/checkout'>
                                     <i className="bi bi-cart-plus"></i>
                                     <span className='ms-3'>{counterState}</span>
-                                </button>
+                                </Link>
                         </div>
                         <div className='d-flex flex-end ms-3'>
                         </div>

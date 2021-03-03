@@ -23,6 +23,7 @@ const initState = {
             img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-green-select-2020?wid=470&hei=556&fmt=png-alpha&.v=1604343704000'
         }
     ] ,
+    checkOutProduct : [{}]
 }
 export const BlogContext = createContext() ;
 

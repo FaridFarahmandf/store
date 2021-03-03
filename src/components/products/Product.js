@@ -1,15 +1,13 @@
 import React from 'react'
 import { useBlogContext } from '../context/BlogContext'
-import {Add_Product_Counter} from '../context/Action'
+import {Add_Product_Counter, Add_To_CheckOut} from '../context/Action'
 
 export default function Product(props) {
     const {dispatch , blogState} = useBlogContext()
-    const AddToCardHandler = () => {
+    const AddToCardHandler = (id) => {
         console.log("counterHandler")
-        // console.log(`counter before change : ${blogState.counter}`)
-        // blogState.counter += 1 ; 
-        // console.log(`counter after change :${blogState.counter}`)
         dispatch(Add_Product_Counter())
+        dispatch(Add_To_CheckOut(id))
     }
     return (
         <div className='w-25 p-4'>
@@ -21,7 +19,7 @@ export default function Product(props) {
                         <p className="card-text">{props.price}</p>
                     </div>
                     <div className='card-footer'>
-                        <button className='btn btn-outline-success' onClick={() => AddToCardHandler()}>
+                        <button className='btn btn-outline-success' onClick={() => AddToCardHandler(props.id)}>
                             <i className="bi bi-bag-plus"></i>
                         </button>
                     </div>
