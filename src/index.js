@@ -4,9 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//add blogContextProvider
+import BlogContextProvider from './components/context/BlogContext'
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BlogContextProvider>
+      <App />
+    </BlogContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

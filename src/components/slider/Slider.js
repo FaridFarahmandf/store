@@ -13,7 +13,7 @@ export default function Slider() {
                         <img src="https://mizoma.com/uploads/image/rootimage/128/fbbe76dd10b24a705af202a4db69727f.jpg?w=1400&h=1000" className="d-block w-100" alt=''/>
                         </div>
                         <div className="carousel-item">
-                        <img src="https://mizoma.com/uploads/image/rootimage/127/6fccdbd7661c39cfeb6c0b5e13823395.jpg?h=200" className="d-block w-100" alt=""/>
+                        <img src="https://m-cdn.phonearena.com/images/article/130195-two_940/Which-phone-size-should-I-choose.webp" className="d-block  w-100" alt=""/>
                         </div>
 
                     </div>
