@@ -1,0 +1,5 @@
+export const Add_Product_Counter = 'Add_Product_Counter'
+export const Add_Quantity_Counter = 'Add_Quantity_Counter'
+export const Dec_Quantity_Counter = 'Dec_Quantity_Counter'
+export const Add_To_CheckOut = 'Add_To_CheckOut'
+export const Total_Value = 'Total_Value'

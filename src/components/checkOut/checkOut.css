@@ -6,3 +6,10 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+#imgProduct{
+    width: 50%;
+    height: 100px;
+}
+.img-product{
+    width: 15%;
+}

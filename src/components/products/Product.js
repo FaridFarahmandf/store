@@ -1,22 +1,27 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { useBlogContext } from '../context/BlogContext'
-import { Add_To_CheckOut , 
-    Add_Product_Counter , 
-    Add_Quantity_Counter , 
-    Dec_Quantity_Counter ,
-    Total_Value
-    } from '../context/Action'
+// import { Add_To_CheckOut , 
+//     Add_Product_Counter , 
+//     Add_Quantity_Counter , 
+//     Dec_Quantity_Counter ,
+//     Total_Value
+//     } from '../context/Action'
+import {Add_To_CheckOut , Total_Value , Add_Quantity_Counter ,Dec_Quantity_Counter} from '../redux/Action'
 import './product.css'
 
 export default function Product(props) {
-    const {dispatch} = useBlogContext()
+    // const {dispatch} = useBlogContext()
+    const dispatch = useDispatch()
 
     const AddToCardHandler = (id) => {
         console.log("AddToCardHandler")
         document.getElementsByClassName('addCard')[id-1].style.display = 'none'
         document.getElementsByClassName('hide')[id-1].style.display = 'block'  
-        dispatch(Add_To_CheckOut(id))
+        Add_To_CheckOut(props.id)
+        dispatch(Add_To_CheckOut(props.id))
         dispatch(Total_Value())
+
         
     }
     

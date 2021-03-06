@@ -4,13 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//add redux
+
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './components/redux/Reducer';
+
 //add blogContextProvider
 import BlogContextProvider from './components/context/BlogContext'
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
     <BlogContextProvider>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BlogContextProvider>
   </React.StrictMode>,
   document.getElementById('root')

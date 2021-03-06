@@ -29,7 +29,7 @@ const rootReducer = (state , action) => {
             console.log(`reducer : checkout, id : ${action.id}`)
             const newObj = state.product.find((p) => p.id === action.id)
             newObj.quantity++ ;
-            newObj.subtotal = newObj.quantity * newObj.price ;            
+            newObj.subtotal = newObj.quantity * newObj.price ;           
             console.log("quantity : "+newObj.quantity) ;
             if(newObj === state.checkOutProduct.find((p1) => p1.id === action.id )){
                 return {...state ,  counter : state.counter + 1 }

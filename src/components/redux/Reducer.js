@@ -1,5 +1,4 @@
-import {useContext , useReducer , createContext} from 'react'
-import rootReducer from './Reducer'
+import * as actionType from './ActionType'
 
 const initState = {
     counter : 0 ,
@@ -82,16 +81,70 @@ const initState = {
     total : 0 ,
         
 }
-export const BlogContext = createContext() ;
+const rootReducer = (state = initState , action) => {
+    switch(action.type) {
+        //increase quantity counter
+        case  actionType.Add_Quantity_Counter: 
+            const newAddObj = state.checkOutProduct.find(p=> p.id === action.id);
+            newAddObj.quantity++;
+            console.log(newAddObj.quantity)
+            newAddObj.subtotal = newAddObj.quantity * newAddObj.price
+            return { ...state , 
+                product : [...state.product] ,
+                counter:state.counter + 1,
+                checkOutProduct: [...state.checkOutProduct]}
 
-const BlogContextProvider = (props) => {
-    const [blogState , dispatch] = useReducer(rootReducer , initState) ;
-    return(
-        <BlogContext.Provider value={{blogState , dispatch}}>
-            {props.children}
-        </BlogContext.Provider>
-    )
+        //decrease quantity counter    
+        case actionType.Dec_Quantity_Counter:
+            const newDecObj = state.checkOutProduct.find(p=> p.id === action.id);
+            console.log(newDecObj.quantity)
+            if(newDecObj.quantity > 1){
+                newDecObj.quantity--;
+                newDecObj.subtotal = newDecObj.quantity * newDecObj.price
+                return {...state ,
+                    product:[...state.product] ,                       
+                    counter:state.counter - 1 ,
+                    checkOutProduct: [...state.checkOutProduct]}
+
+            }else if(newDecObj.quantity === 1){
+                newDecObj.quantity=0;
+                newDecObj.subtotal = newDecObj.quantity * newDecObj.price
+                return{...state,
+                    counter : state.counter- 1 ,
+                    checkOutProduct:state.checkOutProduct.filter((p)=> p.id !== action.id)}
+            }else
+                return {...state}
+
+        //add to checkout
+        case actionType.Add_To_CheckOut:
+            const checkOutObj = state.product.find((p) => p.id === action.id)
+            // console.log(checkOutObj)
+            checkOutObj.quantity += 1;
+            checkOutObj.subtotal = checkOutObj.quantity * checkOutObj.price
+            // let total = 0 ;
+            // for(let i = 0 ; i < state.product.length ; i++){
+            //     total += state.product[i].subtotal ;
+            // }
+            // console.log("total : "+total)
+            if(checkOutObj === state.checkOutProduct.find((p) => p.id === action.id)){
+                return {...state,counter:state.counter + 1,checkOutProduct : [...state.checkOutProduct]}
+            }else
+                return {...state,
+                        product:[...state.product] ,
+                        counter:state.counter + 1 ,
+                        checkOutProduct : [...state.checkOutProduct , checkOutObj],
+                    }
+
+        case actionType.Total_Value : 
+        let total = 0 ;
+        for(let i = 0 ; i < state.product.length ; i++){
+            total += state.product[i].subtotal ;
+        }
+        console.log("total : "+total)
+        return {...state , total:total}
+            
+        default : 
+            return state ;
+    }
 }
-
-export const useBlogContext = () => useContext(BlogContext) ;
-export default BlogContextProvider ;
+export default rootReducer
