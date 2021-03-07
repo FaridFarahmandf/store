@@ -4,6 +4,6 @@
 * Class base component , Function base component moreover dependencies that I use:
     * HOC
     * Hook
-    * redux
+    * redux (useSelector , useDispatch)
     * context
 
