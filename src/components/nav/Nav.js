@@ -1,13 +1,11 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
-import {NavLink , Link , useLocation} from 'react-router-dom'
-import { useBlogContext } from '../context/BlogContext'
+import {useSelector , useDispatch} from 'react-redux'
+import {NavLink , Link } from 'react-router-dom'
 import './nav.css'
 
-export default function Nav() {
-            // const {blogState} = useBlogContext()
-            // const counterState = blogState.counter ;
+export default function Nav(props) {
             const counterState = useSelector(state => state.counter)
+
             return (
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container-fluid">
@@ -25,7 +23,11 @@ export default function Nav() {
                                 </li>
                             </ul>
                             <form className="d-flex">
-                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                                 <input className="form-control me-2"
+                                        type="search" 
+                                        placeholder="Search" 
+                                        aria-label="Search"
+                                        />
                                  <button  className="btn btn-outline-success" type="submit">Search</button>
                             </form>
                                 <Link className='btn btn-outline-info ms-3 position-relative' to='/checkout'>

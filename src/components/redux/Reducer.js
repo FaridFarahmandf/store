@@ -79,7 +79,7 @@ const initState = {
     ] ,
     checkOutProduct : [{}] ,
     total : 0 ,
-    empty:'Your card is currently empty.'
+    empty:'Your card is currently empty.',
         
 }
 const rootReducer = (state = initState , action) => {
@@ -124,6 +124,7 @@ const rootReducer = (state = initState , action) => {
                         counter:state.counter + 1 ,
                         checkOutProduct : [...state.checkOutProduct , checkOutObj],
                         empty:'',
+                        searchProduct:'' ,
                     }
         //give Total Value
         case actionType.Total_Value : 
@@ -148,6 +149,7 @@ const rootReducer = (state = initState , action) => {
                 total : delTotal ,
                 checkOutProduct:state.checkOutProduct.filter(p => p.id !== action.id),
                 } 
+
         default : 
             return state ;
     }
