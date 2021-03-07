@@ -1,6 +1,6 @@
 import React  from 'react'
 import { useSelector } from 'react-redux';
-import { useBlogContext } from '../context/BlogContext'
+// import { useBlogContext } from '../context/BlogContext'
 import Product from './Product';
 
 export default function ProductList() {

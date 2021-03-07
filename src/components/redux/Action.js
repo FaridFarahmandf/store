@@ -23,3 +23,8 @@ export const Total_Value = () => {
         type : actionType.Total_Value
     }
 }
+export const Delete_Product = (id) => {
+    return {
+        type:actionType.Delete_Product , id
+    }
+}

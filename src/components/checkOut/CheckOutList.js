@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-// import { useBlogContext } from '../context/BlogContext'
 import CheckOut from './CheckOut'
 
 export default function CheckOutList() {
@@ -20,10 +19,11 @@ export default function CheckOutList() {
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">SubTotal</th>
+                    <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody className='w-100'>
-                    {products.map((p) => <CheckOut key={p.id} {...p} />)}
+                    {products.map( p => <CheckOut key={p.id} {...p} />)}
                 </tbody>
             </table>
 

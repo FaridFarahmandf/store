@@ -97,35 +97,22 @@ const rootReducer = (state = initState , action) => {
         //decrease quantity counter    
         case actionType.Dec_Quantity_Counter:
             const newDecObj = state.checkOutProduct.find(p=> p.id === action.id);
-            console.log(newDecObj.quantity)
             if(newDecObj.quantity > 1){
                 newDecObj.quantity--;
                 newDecObj.subtotal = newDecObj.quantity * newDecObj.price
                 return {...state ,
                     product:[...state.product] ,                       
                     counter:state.counter - 1 ,
-                    checkOutProduct: [...state.checkOutProduct]}
-
-            }else if(newDecObj.quantity === 1){
-                newDecObj.quantity=0;
-                newDecObj.subtotal = newDecObj.quantity * newDecObj.price
-                return{...state,
-                    counter : state.counter- 1 ,
-                    checkOutProduct:state.checkOutProduct.filter((p)=> p.id !== action.id)}
+                    checkOutProduct: [...state.checkOutProduct]
+                }
             }else
                 return {...state}
 
         //add to checkout
         case actionType.Add_To_CheckOut:
             const checkOutObj = state.product.find((p) => p.id === action.id)
-            // console.log(checkOutObj)
             checkOutObj.quantity += 1;
             checkOutObj.subtotal = checkOutObj.quantity * checkOutObj.price
-            // let total = 0 ;
-            // for(let i = 0 ; i < state.product.length ; i++){
-            //     total += state.product[i].subtotal ;
-            // }
-            // console.log("total : "+total)
             if(checkOutObj === state.checkOutProduct.find((p) => p.id === action.id)){
                 return {...state,counter:state.counter + 1,checkOutProduct : [...state.checkOutProduct]}
             }else
@@ -134,15 +121,26 @@ const rootReducer = (state = initState , action) => {
                         counter:state.counter + 1 ,
                         checkOutProduct : [...state.checkOutProduct , checkOutObj],
                     }
-
+        //give Total Value
         case actionType.Total_Value : 
-        let total = 0 ;
-        for(let i = 0 ; i < state.product.length ; i++){
-            total += state.product[i].subtotal ;
-        }
-        console.log("total : "+total)
-        return {...state , total:total}
-            
+            let total = 0 ;
+            for(let i = 0 ; i < state.product.length ; i++){
+                total += state.product[i].subtotal ;
+            }
+            console.log("total : "+total)
+            return {...state , total:total}
+        //Delete item
+        case actionType.Delete_Product:
+            const delObj = state.checkOutProduct.find(p => p.id === action.id) ;
+            const delCounter = state.counter - delObj.quantity ;
+            const delTotal = state.total - delObj.subtotal ;
+            delObj.quantity = 0 ;
+            delObj.subtotal = 0 ;
+            return {...state , 
+                counter : delCounter ,
+                total : delTotal ,
+                checkOutProduct:state.checkOutProduct.filter(p => p.id !== action.id),
+                } 
         default : 
             return state ;
     }
