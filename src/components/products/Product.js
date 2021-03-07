@@ -21,8 +21,6 @@ export default function Product(props) {
         Add_To_CheckOut(props.id)
         dispatch(Add_To_CheckOut(props.id))
         dispatch(Total_Value())
-
-        
     }
     
     const increaseQuantity = (id) => {

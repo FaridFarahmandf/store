@@ -79,6 +79,7 @@ const initState = {
     ] ,
     checkOutProduct : [{}] ,
     total : 0 ,
+    empty:'Your card is currently empty.'
         
 }
 const rootReducer = (state = initState , action) => {
@@ -92,7 +93,9 @@ const rootReducer = (state = initState , action) => {
             return { ...state , 
                 product : [...state.product] ,
                 counter:state.counter + 1,
-                checkOutProduct: [...state.checkOutProduct]}
+                checkOutProduct: [...state.checkOutProduct],
+                empty:''
+            }
 
         //decrease quantity counter    
         case actionType.Dec_Quantity_Counter:
@@ -114,12 +117,13 @@ const rootReducer = (state = initState , action) => {
             checkOutObj.quantity += 1;
             checkOutObj.subtotal = checkOutObj.quantity * checkOutObj.price
             if(checkOutObj === state.checkOutProduct.find((p) => p.id === action.id)){
-                return {...state,counter:state.counter + 1,checkOutProduct : [...state.checkOutProduct]}
+                return {...state,counter:state.counter + 1,checkOutProduct : [...state.checkOutProduct] , empty:''}
             }else
                 return {...state,
                         product:[...state.product] ,
                         counter:state.counter + 1 ,
                         checkOutProduct : [...state.checkOutProduct , checkOutObj],
+                        empty:'',
                     }
         //give Total Value
         case actionType.Total_Value : 
@@ -128,7 +132,10 @@ const rootReducer = (state = initState , action) => {
                 total += state.product[i].subtotal ;
             }
             console.log("total : "+total)
-            return {...state , total:total}
+            if(total === 0) {
+                return {...state , total:total , empty:'Your card is currently empty.'}
+            }else
+                return {...state , total:total , empty:''}
         //Delete item
         case actionType.Delete_Product:
             const delObj = state.checkOutProduct.find(p => p.id === action.id) ;

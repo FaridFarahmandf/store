@@ -17,6 +17,7 @@ export default function CheckOut(props) {
     }
     const deleteItem = (id) => {
         dispatch(Delete_Product(id))
+        dispatch(Total_Value())
     }
     return (      
             <tr className='rowProduct'>
