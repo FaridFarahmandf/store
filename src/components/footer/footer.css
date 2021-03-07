@@ -1,0 +1,54 @@
+footer {
+    width: 100%;
+    color: white;
+    background-color: rgb(31, 22, 22) !important;
+    margin: 0 ;
+    padding: 0;
+}
+#bottomMenu {
+    padding: 1.5em;
+    width: 35%;
+    margin: 40px auto;
+    border-bottom: 1px solid white !important;
+}
+.li{
+    text-decoration: none;
+    list-style: none !important;
+    margin: 20px !important;
+    text-align: center;
+    color: white !important;
+}
+#bottomOfPage {
+    width: 100%;
+    background-color: rgb(31, 22, 22);
+}
+.bottomPart {
+    /* float: left; */
+    width: 48%;
+    margin: 1%;
+}
+.privacy {
+    background-color: rgb(63, 55, 55);
+}
+.socialMedia {
+    margin-left: 10%;
+    margin-right: 30%;
+}
+.socialMedia i{
+    color: white !important;
+    font-size: 1.4em;
+    margin: 10px 15px 0 15px !important;
+    transition: 0.5s;
+}
+.twitter:hover {
+    color: #55acee !important;
+    transition:all 0.5s;
+}
+.instagram:hover {
+    color: #e4405f !important;
+    transition:all 0.5s;
+}
+.linkedin:hover {
+    color: #0077B5 !important;
+    transition:all 0.5s;
+}
