@@ -11,6 +11,8 @@ const initState = {
             img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=470&hei=556&fmt=png-alpha&.v=1604343704000',
             quantity : 0 ,
             subtotal : 0 ,
+            showCounter:"hide" ,
+            hideBasket:"show"
             
         },
         {
@@ -21,6 +23,8 @@ const initState = {
             img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-red-select-2020?wid=470&hei=556&fmt=png-alpha&.v=1604343703000',
             quantity : 0 ,
             subtotal : 0 ,
+            showCounter:"hide" ,
+            hideBasket:"show",
         },
         {
             id : 3 , 
@@ -30,6 +34,8 @@ const initState = {
             img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-green-select-2020?wid=470&hei=556&fmt=png-alpha&.v=1604343704000',
             quantity : 0 ,
             subtotal : 0 ,
+            showCounter:"hide" ,
+            hideBasket:"show",
         },
         {
             id : 4 , 
@@ -39,6 +45,8 @@ const initState = {
             img : 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-black-select-2020?wid=470&hei=556&fmt=png-alpha&.v=1604343702000',
             quantity : 0 ,
             subtotal : 0 ,
+            showCounter:"hide" ,
+            hideBasket:"show",
         },
         {
             id : 5, 
@@ -48,6 +56,8 @@ const initState = {
             img : 'https://image-us.samsung.com/us/smartphones/galaxy-s21/Gallery-images-Palette/O1-Grey/PDP-O1-Grey-lockup-01-1600x1200.jpg?$product-details-jpg$?$product-details-jpg$',
             quantity : 0 ,
             subtotal : 0 ,
+            showCounter:"hide" ,
+            hideBasket:"show",
         },
         {
             id : 6, 
@@ -57,6 +67,8 @@ const initState = {
             img : 'https://image-us.samsung.com/us/smartphones/galaxy-s21/Gallery-images-Palette/O1-Violet/PDP-O1-Violet-lockup-01-1600x1200.jpg?$product-details-jpg$?$product-details-jpg$',
             quantity : 0 ,
             subtotal : 0 ,
+            showCounter:"hide" ,
+            hideBasket:"show",
         },
         {
             id : 7, 
@@ -66,6 +78,8 @@ const initState = {
             img : 'https://image-us.samsung.com/us/smartphones/galaxy-s21/Gallery-images-Palette/O1-White/PDP-O1-White-lockup-01-1600x1200.jpg?$product-details-jpg$?$product-details-jpg$',
             quantity : 0 ,
             subtotal : 0 ,
+            showCounter:"hide" ,
+            hideBasket:"show",
         },
         {
             id : 8, 
@@ -75,6 +89,8 @@ const initState = {
             img : 'https://image-us.samsung.com/us/smartphones/galaxy-s21/Gallery-images-Palette/O1-Pink/PDP-O1-Pink-lockup-01-1600x1200.jpg?$product-details-jpg$?$product-details-jpg$',
             quantity : 0 ,
             subtotal : 0 ,
+            showCounter:"hide" ,
+            hideBasket:"show",
         },
     ] ,
     checkOutProduct : [{}] ,
@@ -116,6 +132,8 @@ const rootReducer = (state = initState , action) => {
             const checkOutObj = state.product.find((p) => p.id === action.id)
             checkOutObj.quantity += 1;
             checkOutObj.subtotal = checkOutObj.quantity * checkOutObj.price
+            checkOutObj.showCounter = true;
+            checkOutObj.hideBasket = "hide";
             if(checkOutObj === state.checkOutProduct.find((p) => p.id === action.id)){
                 return {...state,counter:state.counter + 1,checkOutProduct : [...state.checkOutProduct] , empty:''}
             }else
@@ -144,6 +162,8 @@ const rootReducer = (state = initState , action) => {
             const delTotal = state.total - delObj.subtotal ;
             delObj.quantity = 0 ;
             delObj.subtotal = 0 ;
+            delObj.showCounter='hide'
+            delObj.hideBasket=true
             return {...state , 
                 counter : delCounter ,
                 total : delTotal ,

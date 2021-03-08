@@ -13,7 +13,7 @@ export default function Slider() {
                         <img src="https://mizoma.com/uploads/image/rootimage/128/fbbe76dd10b24a705af202a4db69727f.jpg?w=1400&h=1000" className="d-block w-100" alt=''/>
                         </div>
                         <div className="carousel-item">
-                        <img src="https://m-cdn.phonearena.com/images/article/130195-two_940/Which-phone-size-should-I-choose.webp" className="d-block  w-100" alt=""/>
+                        <img src="https://images.squarespace-cdn.com/content/v1/598dc23acd0f6843f2c3b90a/1510233500648-BKLTOD9913APAMNJ7N0S/ke17ZwdGBToddI8pDm48kEhuokvAtH7Vxc1HYRZVIFUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dlZ4d8DH2W54YL3Tam6vEU9lI0sVqHP6th0qgtvWFP40JvwGh1qtNWvMhYKnvaKhbA/Office+Desk+Header.jpg?format=2500w" className='d-block w-100' alt=""/>
                         </div>
 
                     </div>
