@@ -1,6 +1,7 @@
-import React , {useState , useEffect}  from 'react'
+import React , {useState }  from 'react'
 import ProductList from './ProductList'
 import WithLoading from '../HOC/WithLoading'
+import Footer from '../footer/Footer'
 
 export default function Products() {
     const ProductsWithLoading = WithLoading(ProductList)
@@ -10,6 +11,7 @@ export default function Products() {
     return (
         <div>
             <ProductsWithLoading isLoading={isLoading}/>
+            <Footer />
         </div>
     )
 }
