@@ -18,9 +18,9 @@ export default function ProductList() {
                     <label>Filter by Brand Name : </label><input className='searchIn' type='text' placeholder='Search ...' 
                     onChange={event => setSearchTerm(event.target.value)} />
 
-                <div class="slidecontainer ms-4">
-                <input type="range" min="600" max="850" value={range} onChange={rangeValueHandler} class="slider" id="myRange"/>
-                <p>Price Range: <span id="demo">{range}</span></p>
+                <div className="slidecontainer ms-4">
+                <input type="range" min="600" max="850" value={range} onChange={rangeValueHandler} className="slider" id="myRange"/>
+                <p>Price Range (more than): <span id="demo">{range}</span></p>
                 </div>
                 </div>
                 <div className='d-flex flex-wrap '>
