@@ -1,7 +1,7 @@
 # Store Example 
-##### This project for my React class
-> in this project I'll try to use: 
-* Class base component , Function base component moreover dependencies that I use:
+##### This is a project for my React course
+> in this project I try to use: 
+* Class base component , Function base component :
     * HOC
     * Hook
     * redux (useSelector , useDispatch)
