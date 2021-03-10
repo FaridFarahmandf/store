@@ -15,7 +15,7 @@ export default function ProductList() {
             <div>
                 <div className='search d-flex flex-wrap'>
                     
-                    <label>Filter by Brand Name : </label><input className='searchIn' type='text' placeholder='Search ...' 
+                    <label>Filter by Brand and Name  : </label><input className='searchIn' type='text' placeholder='Search ...' 
                     onChange={event => setSearchTerm(event.target.value)} />
 
                 <div className="slidecontainer ms-4">
